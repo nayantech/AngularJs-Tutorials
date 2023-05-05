@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Expression</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div>
+        <!-- {{2-3}}
+
+        {{"Nayan" + "Gupta"}} -->
+
+    </div>
+
+
+
+    <div class="app">
+        <div ng-init="first_name='Nayan'; age=22; a=5; b=3">
+            <p>Name and age : {{first_name +" "+ age }} </p>
+            <p>Addition of: {{a + b}} </p>
+        </div>
+
+
+
+        <div ng-init="fruits=['Orange', true , 200]">
+            <h1>ng-init directives with arrays</h1>
+            <p>Fruits available are: <strong> {{fruits[0]}} </strong></p><br>
+            {{"in stock: " + fruits[1]}} <br>
+            Price: <strong> {{fruits[2]}} </strong>
+            <hr>
+
+        </div>
+
+
+
+        <div ng-init="obj={Name:'Nayan' , age:22, hobbies:'Cycling'}">
+            <h1>Angular js in object</h1>
+
+            <p>Name: {{ obj['Name'] }} </p>
+            <p>Age: {{obj.age}} </p>
+            <p> {{"Hobbies:" +" "+ obj.hobbies}} </p>
+        </div>
+
+
+        <hr><hr>
+        <div ng-init="person={
+            fname:'Naresh',
+            lname:'kushwaha',
+            age:25,
+            city:'mumbai'
+        }">
+        <h1>ng-init directive with objects.</h1>
+        <p>My name is : <strong> {{ person.fname +" "+ person.lname }} </strong> </p>
+        My age is : <strong>  {{person.age}} </strong> <br><br>
+        i live in : <strong> {{person.city}} </strong>
+
+        </div>
+
+        <hr><hr><hr>
+        <div ng-init="person1={users:['shrushti','sayli','manali','nishant'],
+                                Comesfrom:{city:['mumbai','pune','nashik']}}">
+
+                                <p>city name: {{person1.Comesfrom.city[1]}} </p>
+        <!-- <hr> -->
+                                <p>Users: {{person1.users[0]}} </p>
+                                <p>Comesfrom: {{person1.Comesfrom.city[0]}} </p>
+
+                                <p>Comesfrom: {{person1.Comesfrom['city'][2]}} </p>
+        <hr>
+
+
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

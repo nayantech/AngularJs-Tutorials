@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="ctrl">
+    <table class="container bg-warning text-black  my-3">
+        <thead>
+            <tr>
+                <th ng-click="myFilterFunction('id')">Id</th>
+                <th ng-click="myFilterFunction('name')">Name</th>
+                <th ng-click="myFilterFunction('city')">City</th>
+                <th ng-click="myFilterFunction('age')">Age</th>
+            </tr>
+    
+        
+        </thead>
+    
+        <tbody >
+            <tr ng-repeat="x in names  |  orderBy:order" >
+                <td> {{x.id}} </td>
+                <td> {{x.name}} </td>
+                <td> {{x.city}} </td>
+                <td> {{x.age}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <!-- 2nd table -->
+    <table class="container bg-warning text-black ">
+        <thead>
+            <tr>
+                <th >Id</th>
+                <th >Name</th>
+                <th >City</th>
+                <th >Age</th>
+            </tr>
+    
+        
+        </thead>
+    
+        <tbody >
+            <tr ng-repeat="x in names | orderBy:'-city' " >
+                <td> {{x.id}} </td>
+                <td> {{x.name}} </td>
+                <td> {{x.city}} </td>
+                <td> {{x.age}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <!-- 3rd table -->
+
+    <h1 class=" bg-red text-center">Sort By</h1>
+    
+    <label for="">
+        Sort BY: 
+       <select ng-model="order2">
+        <option value="+name">Name Ascending</option>
+        <option value="-name">Name Descending</option>
+        <option value="+city">City Ascending</option>
+        <option value="-city">City Descending</option>
+        <option value="+age">Age Ascending</option>
+        <option value="-age">Age Descending</option>
+       </select>
+        <!-- <option value=""></option> -->
+    </label>
+
+
+
+
+    <table class="container bg-warning text-black ">
+        <thead>
+            <tr>
+                <th >Id</th>
+                <th >Name</th>
+                <th >City</th>
+                <th >Age</th>
+            </tr>
+    
+        
+        </thead>
+    
+        <tbody >
+            <tr ng-repeat="x in names | orderBy:order2 " >
+                <td> {{x.id}} </td>
+                <td> {{x.name}} </td>
+                <td> {{x.city}} </td>
+                <td> {{x.age}} </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+        let app=angular.module('myApp',[]);
+
+        app.controller('ctrl',function($scope){
+            $scope.names =[
+
+                {id:1, name:'nayan', city:'mumbai', age:22},
+                {id:2,    name:'sayam', city:'banglore', age:26},
+                {id:3,  name:'ashu', city:'delhi', age:24},
+            ];
+
+            $scope.myFilterFunction = function(x){
+                $scope.order=x;
+                $scope.order2=x;    
+            }
+        })
+    </script>
+</body>
+</html>

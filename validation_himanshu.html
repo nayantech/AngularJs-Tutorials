@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>  
+</head>
+<body>
+  <div class="container w-80 bg-primary text-white mt-1 pt-1 rounded-3"> 
+    <h1 class="text-center"> AngularJs Css Classes with validation.</h1>
+    <div class="row">
+        <div class="col-md-3">
+            First name status: <hr>
+            Pristine: {{studentForm.firstName.$pristine}} <hr>
+            Touched: {{studentForm.firstName.$touched}} <hr>
+            Untouched: {{studentForm.firstName.$untouched}} <hr>
+            Valid: {{studentForm.firstName.$valid}} <hr>
+            Invalid: {{studentForm.firstName.$invalid}} <hr>
+            Dirty: {{studentForm.firstName.$dirty}} <hr>
+            Error: {{studentForm.firstName.$error}} <hr>
+        </div>
+        <div class="col-md-9">
+            <form action="" name="studentForm" class="bg-warning text-dark px-2 py-1 rounded-3">
+            <div class="form-group py-2">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" class="form-control" ng-model="firstName" ng-required="true" >
+                <span ng-show="studentForm.firstName.$touched && studentForm.firstName.$error.required">FirstName</span>
+            </div>
+            <div class="form-group py-2">
+                <label for="lastName" >Last Name</label><br>
+        <input type="text" name="lastName" class="form-control" ng-minlength="3" ng-maxlength="10" ng-model="lastName" ng-required="true"/><br>
+        <span ng-show="studentForm.lastName.$error.minlength">min 3 chars.</span>
+        <span ng-show="studentForm.lastName.$error.maxlength">Max 10 chars.</span>
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-danger mt-2" >
+        </form>
+        </div>
+
+    </div>
+  </div>  
+</body>
+</html>

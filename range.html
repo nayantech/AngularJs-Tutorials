@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body class="bg-dark">
+    
+
+
+
+
+    <div class="container bg-warning mt-5 p-4" style="height: 200px;">
+        <label for=""> Enter Your Range
+            <input type="number" min="1" max="100" ng-model="no">
+        </label>
+
+        <br>
+        <br>
+        <label for=""> Volume between(0 to 100)
+            <br> 
+            <input type="range" min="1" max="100" ng-model="no">
+        </label>
+    </div>
+
+
+
+
+    <script>
+
+        let app=angular.module('myApp',[]);
+
+        app.controller('ctrl',function($scope){
+
+            $scope.no=0;
+
+        })
+    </script>
+</body>
+</html>

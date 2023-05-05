@@ -1,0 +1,16 @@
+<style type="text/css">
+	#active4 {
+		background-color: #39ad64;
+        color:wheat;
+        border-radius: 18px;
+	}
+</style>
+<div class="container mt-2">
+    <h2>Topics Overview:</h2>
+    <ul ng-repeat="x in projectideas">
+        <li>{{x.course}}</li>
+        <ul ng-repeat="y in x.projects">
+            <li>{{y}}</li>
+        </ul>
+    </ul>
+</div>

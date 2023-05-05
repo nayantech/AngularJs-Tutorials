@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js">
+    </script>
+
+    <style type="text/css">
+        div{
+            font-size: 1.5rem;
+            padding-left:1rem;
+        }
+        button{
+            padding:0.3rem 0.6rem;
+            font-size: 1.5rem;
+            margin-bottom:1rem; 
+        }
+        .keyDown {
+            background-color: yellow;
+            color: black;
+        }
+
+        .keyUp {
+            background-color: green;
+            color: white;
+        }
+       
+
+        .keyDown1 {
+            background-color: yellow;
+            color: black;
+            font-size: 2rem;
+            text-align: center;
+            transition: all 1s ease-in-out;
+        }
+
+        .keyUp1 {
+            background-color: green;
+            color: white;
+            transition: all 1s ease-in-out;
+            font-size: 1.5rem;
+        }
+        .bg-red{
+            background-color: red;
+        }
+    </style>
+</head>
+
+
+ <!-- here have input1 and input2 both -->
+
+ 
+<body ng-controller="myCtrl">
+  
+<button type="button" ng-mouseenter="myFunc2()" ng-mouseleave="myFunc2()">mouseenter and leave to show / hide image.</button>
+
+<div ng-show='showMe'>
+  <img src="ogy1.jpeg" width="50rem" alt="img1">
+</div>
+
+
+
+
+<div>
+  <!-- <h1>An Events in AngularJS can be used to perform particular tasks, based on the action taken.</h1>
+
+  ng-mousemove: The movement of the mouse leads to the execution of the event.<br><br>
+
+  ng-mouseup: Movement of the mouse upwards leads to the execution of the event.<br><br>
+
+  ng-mousedown: Movement of the mouse downwards leads to the execution of the event.<br><br>
+  
+  ng-mouseenter: Click of the mouse button leads to the execution of the event.<br><br>
+        
+  ng-mouseover: Hovering the mouse leads to the execution of the event.<br><br>
+        
+  ng-cut: Cut operation leads to the execution of the event.<br><br>
+        
+  ng-copy: Copy operation leads to the execution of the event.<br><br>
+        
+  ng-keypress: Press of key leads to the execution of the event.<br><br>
+        
+  ng-keyup: Press of upward arrow key leads to the execution of the event.<br><br>
+        
+  ng-keydown: Press of downward arrow key leads to the execution of the event.<br><br>
+        
+  ng-click: Single click leads to the execution of the event.<br><br>
+        
+  ng-dblclick: Double click leads to the execution of the event.<br><br>
+        
+  ng-blur: Fired when an HTML element loses its focus.<br><br>
+        
+  ng-change: It is used whenever the value of an input element changes.<br><br>
+        
+  ng-focus: It is used to apply custom behavior when an element is focused.<br><br>
+        
+  ng-paste: It is used to specify custom behavior functions when the text in input fields is pasted into an HTML
+  element.<br><br>
+
+  ng-mouseleave: It is used to apply custom behavior when a mouse-leave event occurs on a specific HTML element.<br><br> -->
+
+
+<h1 ng-mousemove="myFunc($event)">Mouse Over Me!</h1>
+
+  <p>Coordinates: {{x + ', ' + y}}</p>
+
+</div>
+
+    <section style="width:80%;padding:0.5rem;margin:2rem auto 5rem;border:1px solid red;text-align: center;display:flex;justify-content: center;align-items: center;gap:5rem;">
+        <div>
+            <h2>ng-keypress Directive</h2>
+            <textarea rows="10" cols="30"
+            ng-keypress="add = add + 1" ng-init="add=0; cut=0; iscut=false; copy=0; iscopy=false; paste=0; ispaste=false" ng-cut="cut = cut + 1 ; iscut = true;" ng-copy="copy = copy + 1; iscopy = true" ng-paste="paste = paste + 1; ispaste = true">
+              </textarea>
+        </div>
+        <div>
+            <p> {{add}} times key is pressed.</p>
+            <p> {{cut}} times character/text is cut.</p>
+            <p>cut status : {{iscut}} </p>
+            <p> {{copy}} times character/text is copied.</p>
+            <p>copy status : {{iscopy}} </p>
+            <p> {{paste}} times character/text is pasted here.</p>
+            <p>paste status : {{ispaste}} </p>
+        </div>
+    </section>
+    
+
+
+    <section style="width:80%;padding:0.5rem;margin:2rem auto 5rem;border:1px solid red;text-align: center;display:flex;justify-content: center;align-items: center;gap:5rem;">
+
+        <div style="width:500px;padding:1rem;margin:0 auto;border:1px solid red;text-align: center;">
+            <h2>ng-focus Directive</h2>
+            <a href="" ng-focus="isCheck=true">
+                Click to proceed.
+            </a><br>
+            <div class="row" ng-show="isCheck">
+                Thank you please comment down your experience with us: 
+                <input type="text" ng-blur="isCheck=false" /> 
+            </div>
+        </div>
+    
+        <div style="width:500px;padding:1rem;margin:0 auto;border:1px solid red;text-align: center;">
+            <h2>ng-change Directive</h2>
+           
+            Check to show/hide details
+            <input type="checkbox" ng-change="show()"-
+                     ng-model="check">
+            <br><br>
+            <div style="padding:10px;
+                        border:1px solid black;
+                        width:50%;color:green; margin:0 auto;"
+                ng-show='result'>
+                We are at the end of our course so prepare for your mock interview.<br>
+                Best of luck to all of you 😊👍.
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.myFunc = function (ev) {
+                $scope.x = ev.clientX;
+                $scope.y = ev.clientY;
+
+            }
+
+    $scope.showMe = true;
+    $scope.myFunc2 = function () {
+        $scope.showMe = !$scope.showMe;
+            }
+
+            $scope.show = function () {
+                if ($scope.check == true)
+                    $scope.result = true;
+                else $scope.result = false;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

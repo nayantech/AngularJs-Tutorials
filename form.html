@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="formCtrl">
+    <div class="container bg-warning my-2 px-2 py-2 rounded-3">
+        <h4 class="text-center">
+            My Form
+            <hr>
+        </h4>
+
+        <form ng-submit="submitForm()" role="form" name="myForm">
+
+        <div class="form-group">
+            <label class="form-label">Firstname</label>
+            <input type="text" class="form-control" ng-model="fname" required />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">DOB</label>
+            <input type="datetime-local" class="form-control" ng-model="dob" required/>
+
+        </div>
+
+
+        <div class="form-group py-2">
+            <label class="form-label">Gender:</label>
+            Male:
+            <input type="radio" value="male" name="gender" ng-model="gender" required/>
+            Female:
+            <input type="radio" value="female" name="gender" ng-model="gender" required/>
+        </div>
+
+        <div class="form-group py-2">
+            <!-- <label>Check me to select mumbai:
+           <input type="checkbox" ng-model="selected"></label><br/>
+           <label>Check me to select pune: 
+            <input type="checkbox" ng-model="selected2">
+           </label><br/> -->
+
+           <label class="form-label">Choose City:</label>
+           <select class="form-control" ng-model="city">
+            <option value="mumbai" ng-selected="selected">Mumbai</option>
+            <option value="pune" ng-selected="selected2">pune</option>
+           </select>
+
+        </div>
+
+        <div class="form-group py-5">
+            <label class="form-label">mobile-no:</label>
+            <input type="text" maxlength="10" class="form-control"
+            ng-model="mobile" required/>
+
+        </div>
+
+        <div class="form-group py-2">
+            <label class="form-label">Email:</label>
+            <input type="email" class="form-control" ng-model="email" required/>
+
+
+        </div>
+
+        <input type="submit" value="Print" class="btn btn-primary">
+    </form>
+    </div>
+
+
+    <script>
+        let app=angular.module("myApp",[]);
+        app.controller('formCtrl',function($scope){
+            $scope.submitForm= function(){
+                if(($scope.mobile.length == 10 )){
+                    console.log('first Name :' + $scope.fname);
+                    console.log('DOM ' + $scope.dob);
+                    console.log('Gender :' + $scope.gender);
+                    console.log('Mobile no :' + $scope.mobile);
+                    console.log('Email :' + $scope.email)
+                    console.log('City :' + $scope.city);
+                }
+                else{
+                    console.error('invalid inputs')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

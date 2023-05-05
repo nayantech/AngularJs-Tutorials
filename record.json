@@ -1,0 +1,28 @@
+{
+    "students_record":[
+        {
+            "name" : "nayan",
+            "city" : "mumbai"       
+        },
+        {
+            "name" : "shorav",
+            "city" : "mumbai"
+        },
+        {
+            "name" : "shubham",
+            "city" : "mumbai"
+        },
+        {
+            "name" : "sakshi",
+            "city" : "pune"
+        },
+        {
+            "name" : "bhoomik",
+            "city" : "dhanu"
+        },
+        {
+            "name" : "ashu",
+            "city" : "danu"
+        }
+    ]
+}
